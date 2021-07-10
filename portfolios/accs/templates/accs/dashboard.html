@@ -1,0 +1,52 @@
+{% extends 'accs/main.html' %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid text-center my-4">
+    <div class="container">
+      <h1 class="display-4">Welcome to PortfoliOS!</h1>
+      <p class="lead">This is a project by students for students! Check our statistics here:</p>
+    </div>
+</div>
+
+<div class="row m-4">
+    <div class="col-sm-4 px-3 pb-3 text-center">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Projects</h3>
+          <p class="card-text">{{p_count}}</p>
+          <a href="/projects/" class="btn btn-primary">View</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 px-3 pb-3 text-center">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Events</h3>
+          <p class="card-text">{{e_count}}</p>
+          <a href="/events/" class="btn btn-primary">View</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 px-3 pb-3 text-center">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Students</h3>
+            <p class="card-text">{{s_count}}</p>
+            <a href="/students/" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="jumbotron text-center">
+    <h1 class="display-4">Interesting?</h1>
+    <p class="lead">Just login or register!</p>
+    <hr class="my-4">
+    <p>You won`t regret it... maybe</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="register/" role="button">Register</a>
+      <a class="btn btn-primary btn-lg" href="accounts/login/" role="button">Login</a>
+    </p>
+  </div>
+{% endblock %}

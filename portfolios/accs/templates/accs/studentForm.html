@@ -1,0 +1,14 @@
+{% extends 'accs/main.html' %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-group row">
+        <div class="container text-center">
+            <div class="p-4">
+                {{form}}
+            </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block my-4">Add/Edit student</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

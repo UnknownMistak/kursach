@@ -1,0 +1,15 @@
+{% extends 'accs/main.html' %}
+{% block content %}
+
+<form action="{% url 'deleteStudent' item.id %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group row">
+        <div class="container text-center">
+            <br><br><br>
+            <h2>Are you sure you want to delete "{{item}}"?</h2>
+            <button type="submit" name="confirm" class="btn btn-danger btn-lg btn-block my-4">Yes! Delete this</button>
+            <a href="{% url 'students' %}" class="btn btn-secondary btn-lg btn-block my-4">No! Take me back</a>
+        </div>
+    </div>
+</form>
+{% endblock %}

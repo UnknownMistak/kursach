@@ -1,4 +1,5 @@
 from django.db import models
+from simple_history.models import HistoricalRecords
 
 # Create your models here.
 
@@ -8,6 +9,8 @@ class Student(models.Model):
     lname = models.CharField(max_length=200, null=True)
     course = models.IntegerField(null=True)
     date_created= models.DateTimeField(auto_now_add=True, null=True)
+
+    history = HistoricalRecords()
 
     def __str__(self):
         return self.name
@@ -22,6 +25,8 @@ class Project(models.Model):
     owner = models.ForeignKey(Student, null=True, related_name='ownership', on_delete=models.SET_NULL)
     participants = models.ManyToManyField(Student)
 
+    history = HistoricalRecords()
+
     def __str__(self):
         return self.name
 
@@ -34,6 +39,8 @@ class Event(models.Model):
     date_created= models.DateTimeField(auto_now_add=True, null=True)
 
     participants = models.ManyToManyField(Student)
+
+    history = HistoricalRecords()
 
     def __str__(self):
         return self.name

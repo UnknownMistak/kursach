@@ -1,0 +1,28 @@
+{% extends 'accs/main.html' %}
+
+{% block content %}
+
+<div class="container my-4">
+    <h1 class="display-4">Register Page</h1>
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <form class="form-horizontal" action='' method="POST">
+        {% csrf_token %}
+        <table>
+          {{ form.as_table }}
+           <tr>
+              <td>
+                <input type="submit" name="submit" value="Register" class="btn btn-primary btn-lg my-4"/>
+                <p class="help-block">Already have an account? <a href="/login">Log In</a></p>
+              </td>
+          </tr>
+        </table>
+    </form>
+</div>
+
+{% endblock %}

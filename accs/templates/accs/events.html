@@ -1,0 +1,60 @@
+{% extends 'accs/main.html' %}
+
+{% block content %}
+<div class="container text-center my-4">
+    <h1 class="display-4">Events List</h1>
+</div>
+<div class="container text-center my-4">
+    <div id="accordion">
+        {% for e in events%}
+          <div class="card">
+            <div class="card-header" id="heading{{e.id}}">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{e.id}}" aria-expanded="true" aria-controls="collapse{{e.id}}">
+                  {{e.name}}
+                </button>
+              </h5>
+            </div>
+        
+            <div id="collapse{{e.id}}" class="collapse show" aria-labelledby="heading{{e.id}}" data-parent="#accordion">
+              <div class="card-body">
+                {{e.description}}
+              </div>
+                <div class="card-body">
+                  <div class="row m-4">
+                      <div class="col-sm-4 px-3 pb-3 text-center">
+                        <div class="card">
+                          <div class="card-body">
+                            <h3 class="card-title">Date'n'Time</h3>
+                            <p class="card-text">{{e.ev_date}}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4 px-3 pb-3 text-center">
+                        <div class="card">
+                          <div class="card-body">
+                            <h3 class="card-title">Place</h3>
+                            <p class="card-text">{{e.place}}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4 px-3 pb-3 text-center">
+                          <div class="card">
+                            <div class="card-body">
+                              <h3 class="card-title">Participants</h3>
+                              <p class="card-text">
+                                  {% for p in e.participants.all %}
+                                    {{p.name}} {{p.lname}} |
+                                  {% endfor %}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+      </div>
+</div>
+{% endblock %}

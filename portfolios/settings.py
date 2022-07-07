@@ -87,6 +87,10 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 ]
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    '.ngrok.io']
 CORS_ALLOWED_ORIGIN_REGEXES = [
     'http://localhost:3000',
 ]

@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.decorators.csrf import csrf_exempt
 from django.urls.conf import include, re_path
 from rest_framework import routers, serializers, viewsets
 from django.contrib.auth.models import User
@@ -125,6 +126,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', include('accs.urls')),
     path('sentry-debug/', trigger_error),
-    re_path(r'^api/', include('rest_framework.urls', namespace='rest_framework')),
-    re_path(r'^api/', include(api_router.urls)),
+    re_path(r'^api/', csrf_exempt(include('rest_framework.urls', namespace='rest_framework'))),
+    re_path(r'^api/', csrf_exempt(include(api_router.urls))),
 ]
